@@ -1,10 +1,10 @@
-function loginUser() {
-    let email = document.getElementById("email");
-    let password = document.getElementById("password");
-    let confirmPassword = document.getElementById("confirmPassword");
-    let passwordMatch = document.getElementById("passwordMatch");
-    let passwordNotMatched = document.getElementById("passwordNotMatched");
+let email = document.getElementById("email");
+let password = document.getElementById("password");
+let confirmPassword = document.getElementById("confirmPassword");
+let passwordMatch = document.getElementById("passwordMatch");
+let passwordNotMatched = document.getElementById("passwordNotMatched");
 
+function loginUser() {
     let userEmail = email.value.trim();
     let userPassword = password.value.trim();
     let confirmPasswordValue = confirmPassword.value.trim();
@@ -57,15 +57,28 @@ console.log(userPassword.value);
     userPassword = "";
 }
 
+// function signupUser() {
+//     let signupForm = document.createElement("div");
+//     signupForm.id = "signupForm";
+//     signupForm.className = "container d-flex justify-content-center login shadow-lg p-3 mb-5 rounded";
+//     signupForm.innerHTML = ``;
+//     document.body.appendChild(signupForm);
+//     console.log("signed up");
+// }
+
+
+
 
 function signupUser() {
-    let signupForm = document.getElementById("signupForm");
-    signupForm.innerHTML = `
-    `
-    console.log("signed up")
+    // Get the login form element
+    let loginForm = document.getElementById("loginForm");
+    // Hide the login form
+    loginForm.style.display = "none";
+
+    // Create the signup form element
+    // let signupForm = document.createElement("div");
+
+    window.open("signup.html","_parent");
+    // document.body.appendChild(signupForm);
+    console.log("signed up");
 }
-
-
-// function addToLocalStorage(){
-//     let
-// }
