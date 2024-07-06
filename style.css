@@ -63,3 +63,18 @@ label {
     color: green;
     font-weight: 500;
 }
+
+#passwordLength{
+    display: none;
+    font-size: small;
+    color: green;
+    font-weight: 500;
+}
+
+#passwordNotMatched{
+    display: none;
+    font-size: small;
+    color: green;
+    font-weight: 500;
+
+}

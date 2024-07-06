@@ -35,12 +35,13 @@
                 <label for=""> Password</label>
                 <input class="input-field p-1" type="password" name="password" id="password"
                     placeholder="Enter your password">
+                    <p id="passwordLength">Password must be at least 8 characters</p>
             </div>
             <div class="row m-2">
                 <label for="">Confirm Password</label>
                 <input class="input-field p-1" type="password" name="confirmPassword" id="confirmPassword"
                     placeholder="Confirm password">
-                <p id="passwordMatch">Password Matched</p>
+                <p id="passwordMatch">Password Matched</p><p id="passwordLength">Password must be at least 8 characters</p>
             </div>
             <div class="row m-2">
                 <button onclick="loginUser()" type="button" class="btn btn-primary">Login</button>
