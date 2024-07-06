@@ -68,39 +68,69 @@ function getData(){
     var getData = document.getElementById("getData");
     var getDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
     console.log(getDataFromLocalStorage);
-    // console.log(getDataFromLocalStotage);
 
-    getData.innerHTML = ` <div class="container">
-        <h2>Student Dashboard</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Phone Number</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>johndoe@example.com</td>
-                    <td>********</td>
-                    <td>123-456-7890</td>
-                </tr>
-                <tr>
-                    <td>Jane Doe</td>
-                    <td>janedoe@example.com</td>
-                    <td>********</td>
-                    <td>098-765-4321</td>
-                </tr>
-                <!-- Add more rows here -->
-            </tbody>
-        </table>
-    </div>   `
+    var tableBody = "";
+    getDataFromLocalStorage.forEach(function(user) {
+        tableBody += `
+            <tr>
+                <td>${user.email}</td>
+                <td>${user.email}</td>
+                <td>********</td>
+                <td></td>
+            </tr>
+        `;
+    });
+
+    getData.innerHTML = `
+        <div class="container">
+            <h2>Student Dashboard</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${tableBody}
+                </tbody>
+            </table>
+        </div>`;
 }
 
 getData();
+// function getData(){
+//     var getData = document.getElementById("getData");
+//     var getDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
+//     console.log(getDataFromLocalStorage);
+//     // console.log(getDataFromLocalStotage);
+
+//     getData.innerHTML += ` <div class="container">
+//         <h2>Student Dashboard</h2>
+//         <table class="table table-striped">
+//             <thead>
+//                 <tr>
+//                     <th>Name</th>
+//                     <th>Email</th>
+//                     <th>Password</th>
+//                     <th>Phone Number</th>
+//                 </tr>
+//             </thead>
+//             <tbody>
+//                 <tr>
+//                     <td>${getDataFromLocalStorage.email}</td>
+//                     <td>${getDataFromLocalStorage.email}</td>
+//                     <td>${getDataFromLocalStorage.password}</td>
+//                     <td>${getDataFromLocalStorage.confirmPassword}</td>
+//                 </tr>
+//             </tbody>
+//         </table>
+//     </div>   `
+// }
+
+// getData();
 
 
 // function signupUser() {
