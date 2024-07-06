@@ -62,35 +62,58 @@ function loginUser() {
      },2000)
 }
 
+
+//Dashboard Data
+function getData(){
+    var getData = document.getElementById("getData");
+    var getDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
+    console.log(getDataFromLocalStorage);
+    // console.log(getDataFromLocalStotage);
+
+    getData.innerHTML = ` <div class="container">
+        <h2>Student Dashboard</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Phone Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>********</td>
+                    <td>123-456-7890</td>
+                </tr>
+                <tr>
+                    <td>Jane Doe</td>
+                    <td>janedoe@example.com</td>
+                    <td>********</td>
+                    <td>098-765-4321</td>
+                </tr>
+                <!-- Add more rows here -->
+            </tbody>
+        </table>
+    </div>   `
+}
+
+getData();
+
+
 // function signupUser() {
-//     let signupForm = document.createElement("div");
-//     signupForm.id = "signupForm";
-//     signupForm.className = "container d-flex justify-content-center login shadow-lg p-3 mb-5 rounded";
-//     signupForm.innerHTML = ``;
-//     document.body.appendChild(signupForm);
+//     // Get the login form element
+//     let loginForm = document.getElementById("loginForm");
+//     // Hide the login form
+//     loginForm.style.display = "none";
+
+//     // Create the signup form element
+//     // let signupForm = document.createElement("div");
+
+//     window.open("signup.html", "_parent");
+//     // document.body.appendChild(signupForm);
 //     console.log("signed up");
+
 // }
-
-
-
-
-function signupUser() {
-    // Get the login form element
-    let loginForm = document.getElementById("loginForm");
-    // Hide the login form
-    loginForm.style.display = "none";
-
-    // Create the signup form element
-    // let signupForm = document.createElement("div");
-
-    window.open("signup.html", "_parent");
-    // document.body.appendChild(signupForm);
-    console.log("signed up");
-
-}
-
-
-function signedIn() {
-    Swal.fire("Signed in successfully!");
-
-}
