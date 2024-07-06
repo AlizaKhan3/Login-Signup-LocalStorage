@@ -18,45 +18,61 @@
 </head>
 
 <body>
-    <!-- Login Form Layout -->
-    <form onsubmit="loginUser();">
-        <div class="container d-flex justify-content-center login shadow-lg p-3 mb-5 rounded" id="loginForm">
+    <!-- register Form Layout -->
+    <form onsubmit="registerUser();">
+        <div class="container d-flex justify-content-center login shadow-lg p-3 mb-5 rounded" id="registerForm">
             <div class="col">
                 <div class="row m-1">
                     <center>
                         <img src="userlogo.png" id="logo" alt="">
-                        <h6 class=" m-2">Login Your Account here</h6>
+                        <h6 class=" m-2">Register Your Account here</h6>
                     </center>
                 </div>
                 <div class="row m-2">
-                    <label for=""> Email </label>
-                    <input class="input-field" type="email" name="email" id="email" placeholder="Enter your email">
+                    <div class="col-md-6">
+                        <label for="" class="label">First Name</label>
+                        <input class="input-field form-control" type="text" name="firstName" id="firstName"
+                            placeholder="First name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="" class="label">Last Name</label>
+                        <input class="input-field form-control" type="text" name="lastName" id="lastName"
+                            placeholder="Last name">
+                    </div>
                 </div>
                 <div class="row m-2">
-                    <label for=""> Password</label>
-                    <input class="input-field" type="password" name="password" id="password"
-                        placeholder="Enter your password">
-                    <p id="passwordLength">Password must be at least 8 characters</p>
+                    <div class="col-md-12">
+                        <label for=""> Email </label>
+                        <input class="input-field" type="email" name="email" id="email" placeholder="Enter your email">
+                    </div>
                 </div>
-                <!-- <div class="row m-2">
-                    <label for="">Confirm Password</label>
-                    <input class="input-field" type="password" name="confirmPassword" id="confirmPassword"
-                        placeholder="Confirm password">
-                    <p id="passwordMatch" style="display: none; color: green;">Password Matched</p>
-                    <p id="passwordNotMatched" style="display: none; color: red;">Incorrect Password</p>
-                </div> -->
-                <div class="row m-5">
+                <div class="row m-2">
+                    <div class="col-md-6">
+                        <label for=""> Password</label>
+                        <input class="input-field" type="password" name="password" id="password"
+                            placeholder="Enter your password">
+                        <p id="passwordLength">Password must be at least 8 characters</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Confirm Password</label>
+                        <input class="input-field" type="password" name="confirmPassword" id="confirmPassword"
+                            placeholder="Confirm password">
+                        <p id="passwordMatch" style="display: none; color: green;">Password Matched</p>
+                        <p id="passwordNotMatched" style="display: none; color: red;">Incorrect Password</p>
+                    </div>
+                </div>
+
+                <div class="row m-1">
                     <center>
-                        <button onclick="loginUser()" type="button" class="btn btn-primary">Login</button>
+                        <button onclick="registerUser()" type="button" class="btn btn-primary">Login</button>
                         <button onclick="signupUser()" id="signup-btn" type="submit" class="btn btn-primary"
                             style="font-weight: bold;"><span style="color: red;">Don't have an Account? </span> Signup
                             here.</button>
-    
                     </center>
                 </div>
             </div>
         </div>
-        
+
     </form>
     <script src="app.js"></script>
 </body>

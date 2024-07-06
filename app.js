@@ -1,46 +1,47 @@
+let firstName = document.getElementById("firstName");
+let lastName = document.getElementById("lastName");
 let email = document.getElementById("email");
 let password = document.getElementById("password");
 let confirmPassword = document.getElementById("confirmPassword");
 let passwordMatch = document.getElementById("passwordMatch");
 let passwordNotMatched = document.getElementById("passwordNotMatched");
 
-function loginUser() {
+function registerUser(){
+    let userFirstName = firstName.value.trim();
+    let userLastName = lastName.value.trim();
     let userEmail = email.value.trim();
     let userPassword = password.value.trim();
     let confirmPasswordValue = confirmPassword.value.trim();
+    let fullName = userFirstName + " " + userLastName;
 
-
-    if (userEmail !== "" && userPassword.length >= 8 && userPassword === confirmPasswordValue) {
+    if (userFirstName !== "" && userLastName !== "" && userEmail !== "" && userPassword.length >= 8 && userPassword === confirmPasswordValue) {
         passwordMatch.style.display = "block";
         passwordNotMatched.style.display = "none";
         Swal.fire({
             position: "top",
             icon: "success",
-            title: "Welcome " + email.value.toLocaleUpperCase(),
+            title: "Welcome " + fullName.toLocaleUpperCase(),
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
         });
         setTimeout(() => {   //if all data is correct move to dashboard
             window.location.href = "./dashboard.html"
-    
         }, 2000)
         // console.log("logged in");
-    } else if (userEmail !== "" && userPassword.length < 8) {
+    } else if (userFirstName !== "" && userLastName !== "" && userEmail !== "" && userPassword.length < 8) {
         passwordLength.style.display = "block";
         passwordMatch.style.display = "none";
         passwordNotMatched.style.display = "none";
-    } else if (userEmail !== "" && userPassword !== confirmPasswordValue) {
+    } else if (userFirstName !== "" && userLastName !== "" && userEmail !== "" && userPassword !== confirmPasswordValue) {
         passwordNotMatched.style.display = "block";
         passwordMatch.style.display = "none";
     } else {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Something went wrong!",
-            footer: '<a href="#">Why do I have this issue?</a>'
+            text: "Please enter Username or Password!",
         });
     }
-
 
     //setting up local storage data
     var storage = localStorage.getItem("MyUsers");
@@ -52,8 +53,12 @@ function loginUser() {
     //Object of MyUsers
     var MyUsers = {
         email: email.value,
-        password: password.value
+        password: password.value,
+        firstName: firstName.value,
+        lastName: lastName.value
     }
+
+
     //push new user to MyUsers
     arr.push(MyUsers);
     //convert object type to String
@@ -69,7 +74,8 @@ function getData() {
     var tableBody = " ";
     getDataFromLocalStorage.forEach(function (user) {
         tableBody += `<tr>
-                <td>${user.email}</td>
+                <td>${user.firstName}</td>
+                <td>${user.lastName}</td>
                 <td>${user.email}</td>
                 <td>********</td>
                 <td></td>
@@ -83,10 +89,10 @@ function getData() {
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>First Name</th>
+                        <th>Last Name </th>
                         <th>Email</th>
                         <th>Password</th>
-                        <th>Phone Number</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -99,25 +105,25 @@ getData();
 
 
 function logout(){
-    localStorage.clear();
+    // localStorage.clear();
     setTimeout(()=>{
         window.location.href = "./index.html"
     },2000);
 }
 
 
-function signupUser(){
-    // setTimeout(()=>{
-        window.location.href = "./signup.html"
-    // },2000)
-}
+// function signupUser(){
+//     setTimeout(()=>{
+//         window.location.href = "./dashboard.html"
+//     },2000)
+// }
 
 
 // function signupUser() {
 //     // Get the login form element
-//     let loginForm = document.getElementById("loginForm");
+//     let registerForm = document.getElementById("registerForm");
 //     // Hide the login form
-//     loginForm.style.display = "none";
+//     registerForm.style.display = "none";
 
 //     // Create the signup form element
 //     // let signupForm = document.createElement("div");
