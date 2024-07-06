@@ -10,23 +10,6 @@ function loginUser() {
     let confirmPasswordValue = confirmPassword.value.trim();
 
 
-    var storage = localStorage.getItem("MyUsers");
-    var arr = JSON.parse(storage);
-    if(!arr){
-        arr = [];
-    }
-    var MyUsers = {
-        email: email.value,
-        password: password.value
-    }
-    
-    arr.push(MyUsers);
-    localStorage.setItem("MyUsers", JSON.stringify(arr))
-
-console.log(userEmail.value);
-console.log(userPassword.value);
-
-
     if (userEmail !== "" && userPassword.length >= 8 && userPassword === confirmPasswordValue) {
         passwordMatch.style.display = "block";
         passwordNotMatched.style.display = "none";
@@ -53,8 +36,30 @@ console.log(userPassword.value);
             footer: '<a href="#">Why do I have this issue?</a>'
         });
     }
-    userEmail = "";
-    userPassword = "";
+
+
+    //setting up local storage data
+    var storage = localStorage.getItem("MyUsers");
+    //convert string to object
+    var arr = JSON.parse(storage);
+    if (!arr) {
+        arr = [];
+    }
+    //Object of MyUsers
+    var MyUsers = {
+        email: email.value,
+        password: password.value
+    }
+    //push new user to MyUsers
+    arr.push(MyUsers);
+    //convert object type to String
+    localStorage.setItem("MyUsers", JSON.stringify(arr));
+
+    //after login redirect to Dashboard
+     setTimeout(()=>{
+        window.location.href = "./dashboard.html"
+
+     },2000)
 }
 
 // function signupUser() {
@@ -78,7 +83,14 @@ function signupUser() {
     // Create the signup form element
     // let signupForm = document.createElement("div");
 
-    window.open("signup.html","_parent");
+    window.open("signup.html", "_parent");
     // document.body.appendChild(signupForm);
     console.log("signed up");
+
+}
+
+
+function signedIn() {
+    Swal.fire("Signed in successfully!");
+
 }
