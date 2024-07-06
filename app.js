@@ -20,6 +20,10 @@ function loginUser() {
             showConfirmButton: false,
             timer: 1500
         });
+        setTimeout(() => {   //if all data is correct move to dashboard
+            window.location.href = "./dashboard.html"
+    
+        }, 2000)
         // console.log("logged in");
     } else if (userEmail !== "" && userPassword.length < 8) {
         passwordLength.style.display = "block";
@@ -54,25 +58,17 @@ function loginUser() {
     arr.push(MyUsers);
     //convert object type to String
     localStorage.setItem("MyUsers", JSON.stringify(arr));
-
-    //after login redirect to Dashboard
-     setTimeout(()=>{
-        window.location.href = "./dashboard.html"
-
-     },2000)
 }
 
-
 //Dashboard Data
-function getData(){
-    var getData = document.getElementById("getData");
+function getData() {
+    var getData = document.getElementById("getData");  //called get data div by its ID namme
     var getDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
     console.log(getDataFromLocalStorage);
 
-    var tableBody = "";
-    getDataFromLocalStorage.forEach(function(user) {
-        tableBody += `
-            <tr>
+    var tableBody = " ";
+    getDataFromLocalStorage.forEach(function (user) {
+        tableBody += `<tr>
                 <td>${user.email}</td>
                 <td>${user.email}</td>
                 <td>********</td>
@@ -99,38 +95,22 @@ function getData(){
             </table>
         </div>`;
 }
-
 getData();
-// function getData(){
-//     var getData = document.getElementById("getData");
-//     var getDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
-//     console.log(getDataFromLocalStorage);
-//     // console.log(getDataFromLocalStotage);
 
-//     getData.innerHTML += ` <div class="container">
-//         <h2>Student Dashboard</h2>
-//         <table class="table table-striped">
-//             <thead>
-//                 <tr>
-//                     <th>Name</th>
-//                     <th>Email</th>
-//                     <th>Password</th>
-//                     <th>Phone Number</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 <tr>
-//                     <td>${getDataFromLocalStorage.email}</td>
-//                     <td>${getDataFromLocalStorage.email}</td>
-//                     <td>${getDataFromLocalStorage.password}</td>
-//                     <td>${getDataFromLocalStorage.confirmPassword}</td>
-//                 </tr>
-//             </tbody>
-//         </table>
-//     </div>   `
-// }
 
-// getData();
+function logout(){
+    localStorage.clear();
+    setTimeout(()=>{
+        window.location.href = "./index.html"
+    },2000);
+}
+
+
+function signupUser(){
+    // setTimeout(()=>{
+        window.location.href = "./signup.html"
+    // },2000)
+}
 
 
 // function signupUser() {
