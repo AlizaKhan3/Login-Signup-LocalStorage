@@ -18,63 +18,38 @@
 </head>
 
 <body>
-    <div class="container d-flex justify-content-center login shadow-lg p-3 mb-5 rounded">
-        <div class="col">
-            <div class="row m-1">
-                <center>
-                    <h6 class="m-2" style="font-weight: bold; color: #333;">Register Your Account here</h6>
-                </center>
-            </div>
-            <div class="row m-2">
-                <div class="col-md-12">
-                    <label for="" class="label">Username or Email Address</label>
-                    <input class="input-field form-control" type="email" name="username" id="username"
-                        placeholder="Username">
+    <!--Login Form Layout -->
+    <form onsubmit="LoginUser()">
+        <div class="container d-flex justify-content-center login shadow-lg p-3 mb-5 rounded" id="loginForm">
+            <div class="col">
+                <div class="row m-1">
+                    <center>
+                        <img src="userlogo.png" class="loginLogo" alt="">
+                        <h6 class=" m-2">Login Your Account here</h6>
+                    </center>
                 </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-md-6">
+                <div class="row m-2">
+                    <label for=""> Email </label>
+                    <input class="input-field" type="email" name="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="row m-2">
                     <label for=""> Password</label>
                     <input class="input-field" type="password" name="password" id="password"
                         placeholder="Enter your password">
-                    <p id="passwordLength">Password must be at least 8 characters</p>
+                    <!-- <p id="passwordLength">Password must be at least 8 characters</p> -->
                 </div>
-                <div class="col-md-6">
-                    <label for="">Confirm Password</label>
-                    <input class="input-field" type="password" name="confirmPassword" id="confirmPassword"
-                        placeholder="Confirm password">
-                    <p id="passwordMatch" style="display: none; color: green;">Password Matched</p>
-                    <p id="passwordNotMatched" style="display: none; color: red;">Incorrect Password</p>
+                <div class="row m-1">
+                    <center>
+                        <button onclick="LoginUser()" type="button" class="btn btn-primary">Login</button>
+                        <br>
+                        <a href="index.html" style="color: red;">Don't have an Account? Register Now.</a>
+                    </center>
                 </div>
-            </div>
-            <div class="row m-2">
-                <label class="label">Gender</label>
-                <div class="col-md-4">
-                    <label class="genderLabel">
-                        <input type="radio" name="gender" value="m" id="gender" class="input-radio"> Male
-                    </label>
-                </div>
-                <div class="col-md-4">
-                    <label class="genderLabel">
-                        <input type="radio" name="gender" value="f" id="gender" class="input-radio"> Female
-                    </label>
-                </div>
-                <div class="col-md-4">
-                    <label class="genderLabel">
-                        <input type="radio" name="gender" value="custom" id="gender" class="input-radio"> Custom
-                    </label>
-                </div>
-            </div>
-            <div class="row m-3">
-                <center>
-                    <button onclick="signupUser()" type="button" class="btn btn-primary btn-lg">SignUp</button>
-                    <button onclick="loginUser()" id="signup-btn" type="button" class="btn btn-primary">
-                        <span style="color: #fff;">Already have an Account? Login here.</span>
-                    </button>
-                </center>
             </div>
         </div>
-    </div>
+
+    </form>
+    <script src="app.js"></script>
 </body>
 
 </html>

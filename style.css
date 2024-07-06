@@ -18,13 +18,14 @@ body{
     height: 30rem;
     margin-top: 5%;
 }
-#signupForm{
-    padding: 40px 15px;
+
+#loginForm{
+    /* padding: 40px 15px; */
     /* background-color: brown; */
-    background: linear-gradient(60deg, #ccc, #64bcfb,#dcdcdc);
+    /* background: linear-gradient(60deg, #ccc, #64bcfb,#dcdcdc); */
     width: 25rem;
     height: 30rem;
-    margin-top: 5%;
+    /* margin-top: 5%; */
 }
 
 .input-field {
@@ -57,7 +58,14 @@ body{
     padding: 20px;
     border-radius: 50%;
 }
+.loginLogo{
+    background-color: #fff;
+    height: 100px;
+    width: 100px;
+    padding: 20px;
+    border-radius: 50%;
 
+}
 label {
     font-size: 16px;
     font-weight: bold;

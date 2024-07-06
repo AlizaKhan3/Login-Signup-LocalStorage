@@ -7,6 +7,7 @@ let passwordMatch = document.getElementById("passwordMatch");
 let passwordNotMatched = document.getElementById("passwordNotMatched");
 
 function registerUser(){
+    event.preventDefault();
     let userFirstName = firstName.value.trim();
     let userLastName = lastName.value.trim();
     let userEmail = email.value.trim();
@@ -20,7 +21,8 @@ function registerUser(){
         Swal.fire({
             position: "top",
             icon: "success",
-            title: "Welcome " + fullName.toLocaleUpperCase(),
+            title: "Registered Successfully!",
+            text: "Welcome " + fullName.toLocaleUpperCase(),
             showConfirmButton: false,
             timer: 2000
         });
@@ -57,7 +59,6 @@ function registerUser(){
         firstName: firstName.value,
         lastName: lastName.value
     }
-
 
     //push new user to MyUsers
     arr.push(MyUsers);
@@ -112,24 +113,45 @@ function logout(){
 }
 
 
-// function signupUser(){
-//     setTimeout(()=>{
-//         window.location.href = "./dashboard.html"
-//     },2000)
-// }
+function LoginUser(){
+    event.preventDefault();
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+    var checkDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
+    //if user is not registered before and tris to login then show
+    if(!checkDataFromLocalStorage){
+        Swal.fire({
+            icon: "error",
+            text: "User Not Found!",
+        });
+        setTimeout (()=> {
+            window.location.href ="index.html"
+        },3000)
+    }
+    //present data wont matched with entered details
+    if (checkDataFromLocalStorage.email !== email.value) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Invalid Username",
+        });
+    } else if (checkDataFromLocalStorage.password !== password.value) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Invalid Password",
+        });
+    }
 
-
-// function signupUser() {
-//     // Get the login form element
-//     let registerForm = document.getElementById("registerForm");
-//     // Hide the login form
-//     registerForm.style.display = "none";
-
-//     // Create the signup form element
-//     // let signupForm = document.createElement("div");
-
-//     window.open("signup.html", "_parent");
-//     // document.body.appendChild(signupForm);
-//     console.log("signed up");
-
-// }
+    else {
+        Swal.fire({
+            icon: "success",
+            title: "Logged in Successfully!",
+            showConfirmButton: false,
+            timer: 2000
+        });
+        setTimeout(() => {   //if all data is correct move to dashboard
+            window.location.href = "./dashboard.html"
+        }, 2000)
+    }
+}
