@@ -4,18 +4,14 @@ let confirmPassword = document.getElementById("confirmPassword");
 let passwordMatch = document.getElementById("passwordMatch");
 let passwordNotMatched = document.getElementById("passwordNotMatched");
 
-
-
-
 function loginUser() {
     let userEmail = email.value.trim();
-let userPassword = password.value.trim();
-    // if (userPassword === confirmPassword.value.trim()) {
-    //     passwordMatch.style.display = "block"
-    // }
+    let userPassword = password.value.trim();
+    let confirmPasswordValue = confirmPassword.value.trim();
 
-    if (userEmail != null && userPassword.length>=8 != null && userPassword === confirmPassword.value.trim()) {
-        passwordMatch.style.display = "block"
+    if (userEmail!== "" && userPassword.length >= 8 && userPassword === confirmPasswordValue) {
+        passwordMatch.style.display = "block";
+        passwordNotMatched.style.display = "none";
         Swal.fire({
             position: "top",
             icon: "success",
@@ -23,10 +19,22 @@ let userPassword = password.value.trim();
             showConfirmButton: false,
             timer: 1500
         });
-        console.log("logged in");
+        // console.log("logged in");
+    } else if (userEmail!== "" && userPassword.length < 8) {
+        passwordLength.style.display = "block";
+        passwordMatch.style.display = "none";
+        passwordNotMatched.style.display = "none";
+    } else if (userEmail!== "" && userPassword!== confirmPasswordValue) {
+        passwordNotMatched.style.display = "block";
+        passwordMatch.style.display = "none";
     }
-    // else if (userEmail != null && userPassword.length < 8 != null && userPassword !== confirmPassword.value.trim()) {
-    //     passwordNotMatched.style.display = "block"
+}
 
-    // }
+
+
+function signupUser(){
+    let signupForm = document.getElementById("signupForm");
+    signupForm.innerHTML = `
+    `
+    console.log("signed up")
 }

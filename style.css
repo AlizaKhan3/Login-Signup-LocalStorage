@@ -4,13 +4,27 @@
     padding: 0px;
 }
 
+body{
+    background: linear-gradient(60deg, #ccc, #d4d8e5,#dcdcdc);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .login {
     padding: 40px 15px;
     /* background-color: brown; */
-    background: linear-gradient(rgb(0, 149, 255), grey, rgb(220, 220, 220));
+    background: linear-gradient(60deg, #ccc, #64bcfb,#dcdcdc);
     width: 25rem;
     height: 30rem;
-    margin-top: 2%;
+    margin-top: 5%;
+}
+#signupForm{
+    padding: 40px 15px;
+    /* background-color: brown; */
+    background: linear-gradient(60deg, #ccc, #64bcfb,#dcdcdc);
+    width: 40rem;
+    height: 30rem;
+    margin-top: 5%;
 }
 
 .input-field {
@@ -76,5 +90,8 @@ label {
     font-size: small;
     color: green;
     font-weight: 500;
+}
 
+.btn{
+    width: fit-content;
 }
