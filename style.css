@@ -22,14 +22,14 @@ body{
     padding: 40px 15px;
     /* background-color: brown; */
     background: linear-gradient(60deg, #ccc, #64bcfb,#dcdcdc);
-    width: 40rem;
+    width: 25rem;
     height: 30rem;
     margin-top: 5%;
 }
 
 .input-field {
     width: 100%;
-    padding: 10px;
+    padding: 5px 20px;
     border: none;
     border-radius: 10px;
     background-color: #f7f7f7;
@@ -94,4 +94,20 @@ label {
 
 .btn{
     width: fit-content;
+}
+
+
+.genderLabel{
+    font-size: medium;
+    font-weight: 500;
+    color: #000000;
+    /* padding-top: 0px;
+    margin-bottom: 10px; */
+
+}
+.input-radio{
+    border: 2px solid yellow;
+    height: 15px;
+    width: 20px;
+    margin: 0px 4px;
 }
