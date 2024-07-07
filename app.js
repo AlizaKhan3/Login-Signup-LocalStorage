@@ -68,7 +68,7 @@ function registerUser(){
 
 //Dashboard Data
 function getData() {
-    var getData = document.getElementById("getData");  //called get data div by its ID namme
+    var getDataInLogin = document.getElementById("getData");  //called get data div by its ID namme
     var getDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
     console.log(getDataFromLocalStorage);
 
@@ -84,8 +84,7 @@ function getData() {
         `;
     });
 
-    getData.innerHTML = `
-        <div class="container">
+    getDataInLogin.innerHTML = `<div class="container">
             <h2>Student Dashboard</h2>
             <table class="table table-striped">
                 <thead>
@@ -113,37 +112,94 @@ function logout(){
 }
 
 
+// function LoginUser(){
+//     event.preventDefault();
+//     let email = document.getElementById("email");
+//     let password = document.getElementById("password");
+//     var checkDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
+//     // console.log(checkDataFromLocalStorage[0]);
+//     //if user is not registered before and tris to login then show
+//     for (let index = 0; index < checkDataFromLocalStorage.length - 1; index++) {
+//         for (let j = 0; j < checkDataFromLocalStorage[index].length; j++) {
+//             console.log(i,j)
+            
+//         }
+//         // const element = array[index];
+        
+//     }
+//     if(!checkDataFromLocalStorage){
+//         Swal.fire({
+//             icon: "error",
+//             text: "User Not Found!",
+//         });
+//         setTimeout (()=> {
+//             window.location.href ="index.html"  //redirects the user to Register page 
+//         },3000) 
+//     }
+//     //if present data wont matched with entered details
+//     if (checkDataFromLocalStorage.email !== email.value) {
+//         Swal.fire({
+//             icon: "error",
+//             title: "Oops...",
+//             text: "Invalid Email",
+//         });
+//     } else if (checkDataFromLocalStorage.password !== password.value) {
+//         Swal.fire({
+//             icon: "error",
+//             title: "Oops...",
+//             text: "Invalid Password",
+//         });
+//     }
+
+//     else {
+//         Swal.fire({
+//             icon: "success",
+//             title: "Logged in Successfully!",
+//             showConfirmButton: false,
+//             timer: 2000
+//         });
+//         setTimeout(() => {   //if all data is correct move to dashboard
+//             window.location.href = "./dashboard.html"
+//         }, 2000)
+//     }
+// }
+
+
+
+
 function LoginUser(){
     event.preventDefault();
-    let email = document.getElementById("email");
-    let password = document.getElementById("password");
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
     var checkDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
-    //if user is not registered before and tris to login then show
-    if(!checkDataFromLocalStorage){
+    let userFound = false;
+
+    if (!checkDataFromLocalStorage) {
         Swal.fire({
             icon: "error",
             text: "User Not Found!",
         });
-        setTimeout (()=> {
-            window.location.href ="index.html"
-        },3000)
-    }
-    //present data wont matched with entered details
-    if (checkDataFromLocalStorage.email !== email.value) {
-        Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Invalid Email",
-        });
-    } else if (checkDataFromLocalStorage.password !== password.value) {
-        Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Invalid Password",
-        });
+        setTimeout(() => {
+            window.location.href = "index.html"  //redirects the user to Register page 
+        }, 3000);
+        return;
     }
 
-    else {
+    for (let index = 0; index < checkDataFromLocalStorage.length; index++) {
+        let user = checkDataFromLocalStorage[index];
+        if (user.email === email && user.password === password) {
+            userFound = true;
+            break;
+        }
+    }
+
+    if (!userFound) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Invalid Email or Password",
+        });
+    } else {
         Swal.fire({
             icon: "success",
             title: "Logged in Successfully!",
@@ -155,6 +211,20 @@ function LoginUser(){
         }, 2000)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
