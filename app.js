@@ -6,7 +6,7 @@ let confirmPassword = document.getElementById("confirmPassword");
 let passwordMatch = document.getElementById("passwordMatch");
 let passwordNotMatched = document.getElementById("passwordNotMatched");
 
-function registerUser(){
+function registerUser() {
     event.preventDefault();
     let userFirstName = firstName.value.trim();
     let userLastName = lastName.value.trim();
@@ -104,87 +104,33 @@ function getData() {
 getData();
 
 
-function logout(){
+function logout() {
     // localStorage.clear();
-    setTimeout(()=>{
+    setTimeout(() => {
         window.location.href = "./index.html"
-    },2000);
+    }, 2000);
 }
 
-
-// function LoginUser(){
-//     event.preventDefault();
-//     let email = document.getElementById("email");
-//     let password = document.getElementById("password");
-//     var checkDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
-//     // console.log(checkDataFromLocalStorage[0]);
-//     //if user is not registered before and tris to login then show
-//     for (let index = 0; index < checkDataFromLocalStorage.length - 1; index++) {
-//         for (let j = 0; j < checkDataFromLocalStorage[index].length; j++) {
-//             console.log(i,j)
-            
-//         }
-//         // const element = array[index];
-        
-//     }
-//     if(!checkDataFromLocalStorage){
-//         Swal.fire({
-//             icon: "error",
-//             text: "User Not Found!",
-//         });
-//         setTimeout (()=> {
-//             window.location.href ="index.html"  //redirects the user to Register page 
-//         },3000) 
-//     }
-//     //if present data wont matched with entered details
-//     if (checkDataFromLocalStorage.email !== email.value) {
-//         Swal.fire({
-//             icon: "error",
-//             title: "Oops...",
-//             text: "Invalid Email",
-//         });
-//     } else if (checkDataFromLocalStorage.password !== password.value) {
-//         Swal.fire({
-//             icon: "error",
-//             title: "Oops...",
-//             text: "Invalid Password",
-//         });
-//     }
-
-//     else {
-//         Swal.fire({
-//             icon: "success",
-//             title: "Logged in Successfully!",
-//             showConfirmButton: false,
-//             timer: 2000
-//         });
-//         setTimeout(() => {   //if all data is correct move to dashboard
-//             window.location.href = "./dashboard.html"
-//         }, 2000)
-//     }
-// }
-
-
-
-
-function LoginUser(){
+function LoginUser() {
     event.preventDefault();
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
     var checkDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
+    //created flag with default value set to false
     let userFound = false;
 
-    if (!checkDataFromLocalStorage) {
-        Swal.fire({
-            icon: "error",
-            text: "User Not Found!",
-        });
-        setTimeout(() => {
-            window.location.href = "index.html"  //redirects the user to Register page 
-        }, 3000);
-        return;
-    }
+    // if (!checkDataFromLocalStorage) {
+    //     Swal.fire({
+    //         icon: "error",
+    //         text: "User Not Found!",
+    //     });
+    //     setTimeout(() => {
+    //         window.location.href = "index.html"  //redirects the user to Register page 
+    //     }, 3000);
+    //     return;
+    // }
 
+    //localStorage Data is in the form of Array, so here loop is used to check email index[0] and password [1] to verify and login user if data is available in local storage array
     for (let index = 0; index < checkDataFromLocalStorage.length; index++) {
         let user = checkDataFromLocalStorage[index];
         if (user.email === email && user.password === password) {
@@ -197,8 +143,12 @@ function LoginUser(){
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Invalid Email or Password",
+            text: "User Not Found",
         });
+        setTimeout(() => {
+            window.location.href = "./index.html"  //redirects the user to Register page 
+        }, 3000);
+        // return;
     } else {
         Swal.fire({
             icon: "success",

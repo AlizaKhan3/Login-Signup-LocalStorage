@@ -18,7 +18,6 @@
 </head>
 
 <body>
-    <!-- register Form Layout -->
     <form onsubmit="registerUser();">
         <div class="container d-flex justify-content-center login shadow-lg p-3 mb-5 rounded" id="registerForm">
             <div class="col">
@@ -61,18 +60,20 @@
                         <p id="passwordNotMatched" style="display: none; color: red;">Incorrect Password</p>
                     </div>
                 </div>
-
-                <div class="row m-1">
-                    <center>
+                    <div class="row mt-5">
+                        <div class="col-md-12"  style="text-align: center;">
                         <button onclick="registerUser()" type="button" class="btn btn-primary">Register Now</button>
-                        <a href="login.html" style="color: red;">Already have an Account? Login Here.</a>
-                           </center>
-                </div>
+                    </div>
+                    </div>
+                    <div class="row m-1">
+                        <div class="col-md-12" style="text-align: center;">
+                        <a href="login.html" style="color: red;"> <span>Already have an Account?</span> Login Here.</a>
+                        </div>
+                    </div>
             </div>
         </div>
 
     </form>
     <script src="app.js"></script>
 </body>
-
 </html>

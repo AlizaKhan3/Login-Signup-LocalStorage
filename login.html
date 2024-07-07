@@ -18,7 +18,6 @@
 </head>
 
 <body>
-    <!--Login Form Layout -->
     <form onsubmit="LoginUser()">
         <div class="container d-flex justify-content-center login shadow-lg p-3 mb-5 rounded" id="loginForm">
             <div class="col">
@@ -36,20 +35,19 @@
                     <label for=""> Password</label>
                     <input class="input-field" type="password" name="password" id="password"
                         placeholder="Enter your password">
-                    <!-- <p id="passwordLength">Password must be at least 8 characters</p> -->
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12" style="text-align: center;">
+                        <button onclick="LoginUser()" type="button" class="btn btn-primary">Login</button>
+                    </div>
                 </div>
                 <div class="row m-1">
-                    <center>
-                        <button onclick="LoginUser()" type="button" class="btn btn-primary">Login</button>
-                        <br>
+                    <div class="col-md-12 mt-4" style="text-align: center;">
                         <a href="index.html" style="color: red;">Don't have an Account? Register Now.</a>
-                    </center>
+                    </div>
                 </div>
             </div>
-        </div>
-
     </form>
     <script src="app.js"></script>
 </body>
-
 </html>
