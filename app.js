@@ -85,7 +85,7 @@ function getData() {
     });
 
     getDataInLogin.innerHTML = `<div class="container">
-            <h2>Student Dashboard</h2>
+            <h2>Registered Accounts Dashboard</h2>
             <table class="table table-striped">
                 <thead>
                     <tr>
