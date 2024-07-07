@@ -105,7 +105,7 @@ getData();
 
 
 function logout() {
-    localStorage.clear();
+    // localStorage.clear();
     setTimeout(() => {
         window.location.href = "./index.html"
     }, 2000);
