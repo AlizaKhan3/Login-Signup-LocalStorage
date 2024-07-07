@@ -133,7 +133,7 @@ function LoginUser(){
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Invalid Username",
+            text: "Invalid Email",
         });
     } else if (checkDataFromLocalStorage.password !== password.value) {
         Swal.fire({
