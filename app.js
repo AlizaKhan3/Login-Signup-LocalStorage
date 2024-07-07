@@ -105,7 +105,7 @@ getData();
 
 
 function logout() {
-    // localStorage.clear();
+    localStorage.clear();
     setTimeout(() => {
         window.location.href = "./index.html"
     }, 2000);
@@ -161,63 +161,3 @@ function LoginUser() {
         }, 2000)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function LoginUser() {
-//     event.preventDefault();
-//     let email = document.getElementById("email");
-//     let password = document.getElementById("password");
-//     var checkDataFromLocalStorage = JSON.parse(localStorage.getItem("MyUsers"));
-//     //if user is not registered before and tris to login then show
-//     if (!checkDataFromLocalStorage) {
-//         Swal.fire({
-//             icon: "error",
-//             text: "User Not Found!",
-//         });
-//         setTimeout(() => {
-//             window.location.href = "index.html"
-//         }, 3000)
-//     }
-//     //present data wont matched with entered details
-//     let userFound = false;
-//     checkDataFromLocalStorage.forEach(function (user) {
-//         if (user.email === email.value && user.password === password.value) {
-//             userFound = true;
-//             Swal.fire({
-//                 icon: "success",
-//                 title: `${checkDataFromLocalStorage.firstName} Successfully Logged in!`,
-//                 showConfirmButton: false,
-//                 timer: 2000
-//             });
-//             setTimeout(() => {   //if all data is correct move to dashboard
-//                 window.location.href = "./dashboard.html"
-//             }, 2000)
-//         }
-//     });
-
-//     if (!userFound) {
-//         Swal.fire({
-//             icon: "error",
-//             title: "Oops...",
-//             text: "Invalid Email",
-//         });
-//     }
-// }
