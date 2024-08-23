@@ -162,3 +162,35 @@ function LoginUser() {
     }
 }
 
+
+
+//   for (let index = 0; index < checkDataFromLocalStorage.length; index++) {
+//         let user = checkDataFromLocalStorage[index];
+//         if (user.email === email && user.password === password) {
+//             userFound = true;
+//             break;
+//         }
+//     }
+
+//     if (!userFound) {
+//         Swal.fire({
+//             icon: "error",
+//             title: "Oops...",
+//             text: "User Not Found",
+//         });
+//         setTimeout(() => {
+//             window.location.href = "./index.html"  //redirects the user to Register page 
+//         }, 3000);
+//         // return;
+//     } else {
+//         Swal.fire({
+//             icon: "success",
+//             title: "Logged in Successfully!",
+//             showConfirmButton: false,
+//             timer: 2000
+//         });
+//         setTimeout(() => {   //if all data is correct move to dashboard
+//             window.location.href = "./dashboard.html"
+//         }, 2000)
+//     }
+// }
